@@ -1,16 +1,21 @@
 import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Star, Heart, Music, Cake } from 'lucide-react';
+import { Star, Heart, Music, Cake, Sparkles } from 'lucide-react';
+
+const milestoneIcons = [
+  <Sparkles size={32} color="#ffd1dc" />,
+  <Heart size={32} color="#ffd1dc" />,
+  <Music size={32} color="#b0e0e6" />,
+  <Star size={32} color="#f2d184" />,
+  <Cake size={32} color="#e6e6fa" />,
+];
 
 gsap.registerPlugin(ScrollTrigger);
 
-const milestones = [
-  { id: 1, title: "First Smile", date: "2 Months", icon: <Heart size={32} color="#ffd1dc" />, text: "The day the whole world lit up with just one little smile." },
-  { id: 2, title: "First Word", date: "7 Months", icon: <Music size={32} color="#b0e0e6" />, text: "A sweet babble that sounded just like magic to our ears." },
-  { id: 3, title: "First Step", date: "11 Months", icon: <Star size={32} color="#f2d184" />, text: "Wobbly but determined, taking steps into a big new world." },
-  { id: 4, title: "First Birthday", date: "12 Months", icon: <Cake size={32} color="#e6e6fa" />, text: "A whole year of love, laughter, and endless joy." }
-];
+import { timelineMilestones } from '../data/yamiPhotos';
+
+const milestones = timelineMilestones;
 
 export default function Timeline() {
   const containerRef = useRef();
