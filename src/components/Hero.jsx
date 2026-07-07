@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import { BIRTHDAY_AGE, BIRTHDAY_DATE, YAMI_NAME, heroPortrait } from '../data/yamiPhotos';
 
 export default function Hero() {
   const containerRef = useRef();
@@ -52,6 +53,20 @@ export default function Hero() {
 
   return (
     <section ref={containerRef} style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
+      <div
+        className="glass-panel glow-effect"
+        style={{
+          padding: '0.6rem 1.8rem',
+          marginBottom: '1.5rem',
+          background: 'rgba(255, 255, 255, 0.55)',
+          fontSize: '1.1rem',
+          fontWeight: 600,
+          letterSpacing: '1px',
+        }}
+      >
+        🎂 Today She Turns {BIRTHDAY_AGE}! · {BIRTHDAY_DATE}
+      </div>
+
       <div 
         ref={portraitRef}
         className="glass-panel"
@@ -75,21 +90,20 @@ export default function Hero() {
           alignItems: 'center',
           justifyContent: 'center'
         }}>
-          {/* Placeholder for actual 3D baby portrait */}
           <img 
-            src="/baby_portrait.png" 
-            alt="Magical Baby"
+            src={heroPortrait} 
+            alt={`${YAMI_NAME} on her 1st birthday`}
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
         </div>
       </div>
       
       <h1 ref={textRef} className="heading-gold" style={{ fontSize: '4rem', marginBottom: '1rem', textShadow: '2px 2px 4px rgba(0,0,0,0.1)' }}>
-        Welcome To My Magical Little World ✨
+        Happy 1st Birthday, {YAMI_NAME}! ✨
       </h1>
       
       <p ref={subtitleRef} style={{ fontSize: '1.5rem', color: 'var(--dark-purple)', opacity: 0.8, maxWidth: '600px', lineHeight: 1.6 }}>
-        Step into a dreamy universe filled with love, joy, and stardust.
+        One magical year of love, giggles, and stardust — welcome to {YAMI_NAME}&apos;s dreamy little world.
       </p>
     </section>
   );
